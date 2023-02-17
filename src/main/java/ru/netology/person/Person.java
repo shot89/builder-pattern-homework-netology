@@ -38,8 +38,8 @@ public class Person {
         return surname;
     }
 
-    public int getAge() {
-        return age.getAsInt();
+    public OptionalInt getAge() {
+        return age;
     }
 
     public String getAddress() {
@@ -68,9 +68,9 @@ public class Person {
     public String toString() {
         if (hasAge()) {
             if (hasAddress()) {
-                return String.format("Имя: %s, фамилия: %s, возраст: %d, адрес: %s.", name, surname, getAge(), address);
+                return String.format("Имя: %s, фамилия: %s, возраст: %d, адрес: %s.", name, surname, getAge().getAsInt(), address);
             } else {
-                return String.format("Имя: %s, фамилия: %s, возраст: %d.", name, surname, getAge());
+                return String.format("Имя: %s, фамилия: %s, возраст: %d.", name, surname, getAge().getAsInt());
             }
         } else if (hasAddress()) {
             return String.format("Имя: %s, фамилия: %s, адрес: %s.", name, surname, address);
